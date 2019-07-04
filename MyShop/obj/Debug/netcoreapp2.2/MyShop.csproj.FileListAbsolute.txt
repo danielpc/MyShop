@@ -1,0 +1,14 @@
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/bin/Debug/netcoreapp2.2/MyShop.deps.json
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/bin/Debug/netcoreapp2.2/MyShop.runtimeconfig.json
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/bin/Debug/netcoreapp2.2/MyShop.runtimeconfig.dev.json
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/bin/Debug/netcoreapp2.2/MyShop.dll
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/bin/Debug/netcoreapp2.2/MyShop.pdb
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/obj/Debug/netcoreapp2.2/MyShop.csprojAssemblyReference.cache
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/obj/Debug/netcoreapp2.2/MyShop.csproj.CoreCompileInputs.cache
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/obj/Debug/netcoreapp2.2/MyShop.RazorAssemblyInfo.cache
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/obj/Debug/netcoreapp2.2/MyShop.RazorAssemblyInfo.cs
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/obj/Debug/netcoreapp2.2/MyShop.AssemblyInfoInputs.cache
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/obj/Debug/netcoreapp2.2/MyShop.AssemblyInfo.cs
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/obj/Debug/netcoreapp2.2/MyShop.RazorTargetAssemblyInfo.cache
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/obj/Debug/netcoreapp2.2/MyShop.dll
+/Users/DPC/Documents/dev/dotnet/MyShop/MyShop/obj/Debug/netcoreapp2.2/MyShop.pdb
