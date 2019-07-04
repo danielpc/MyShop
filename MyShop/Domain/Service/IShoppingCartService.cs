@@ -6,9 +6,8 @@ using Supermarket.API.Resources.Order;
 
 namespace Supermarket.API.Domain.Service
 {
-    public interface IOrderService
+    public interface IShoppingCartService
     {
-        Task<GenericResponse<Order>> SaveAsync(int userId,  IEnumerable<OrderItemResource> saveOrderItems);
-        Task<GenericResponse<Order>> DeleteAsync(int id);
+        Task<List<Item>> GetItemsListAsync(IEnumerable<OrderItemResource> saveOrderItems);
     }
 }

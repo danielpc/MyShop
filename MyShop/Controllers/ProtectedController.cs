@@ -11,6 +11,7 @@ namespace Supermarket.API.Controllers
         [Route("/api/protectedforcommonusers")]
         public IActionResult GetProtectedData()
         {
+            
              return Ok($"Hello world from protected controller, you have the subject: {User.Identity.Name}");
         }
 

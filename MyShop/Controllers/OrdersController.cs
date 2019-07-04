@@ -31,20 +31,12 @@ namespace Supermarket.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
             
-            
-            var userId = Convert.ToInt32(User.Identity.Name);
+            var result = await _orderService.SaveAsync(User.GetUserID(), saveOrderItems);
 
-            var result = await _orderService.GetItemsListAsync(saveOrderItems);
-            
-            if(!result.Success)
+            if (!result.Success)
                 return BadRequest(result.Message);
             
-            var saveResult = await _orderService.SaveAsync(userId, result.Resource);
-
-            if (!saveResult.Success)
-                return BadRequest(saveResult.Message);
-            
-            return Ok(saveResult.Resource);
+            return Ok(result.Resource);
         }
         
         [HttpDelete("{id}")]

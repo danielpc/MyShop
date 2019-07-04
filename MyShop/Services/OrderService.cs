@@ -14,22 +14,26 @@ namespace Supermarket.API.Services
     public class OrderService : IOrderService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IProductService _productService;
+        private readonly IShoppingCartService _shoppingCartService;
         private readonly IOrderRepository _orderRepository;
         private readonly IUnitOfWork _unitOfWork;
 
 
-        public OrderService(IUserRepository userRepository, IProductService productService, IOrderRepository orderRepository, IUnitOfWork unitOfWork)
+        public OrderService(IUserRepository userRepository, IShoppingCartService shoppingCartService, IOrderRepository orderRepository, IUnitOfWork unitOfWork)
         {
             _userRepository = userRepository;
-            _productService = productService;
+            _shoppingCartService = shoppingCartService;
             _orderRepository = orderRepository;
             _unitOfWork = unitOfWork;
         }
         
-        public async Task<GenericResponse<Order>> SaveAsync(int userId, List<Item> items)
+        public async Task<GenericResponse<Order>> SaveAsync(int userId, IEnumerable<OrderItemResource> saveOrderItems)
         {
             var existingUser = await _userRepository.FindByIdAsync(userId);
+            var items = await _shoppingCartService.GetItemsListAsync(saveOrderItems);
+            
+            if(items.Count == 0)
+                return new GenericResponse<Order>("No items made");
             
             if (existingUser == null)
                 return new GenericResponse<Order>("No user found");
@@ -47,29 +51,6 @@ namespace Supermarket.API.Services
             catch (Exception ex)
             {
                 return new GenericResponse<Order>($"An error occurred saving the order: {ex.Message}");
-            }
-            
-        }
-
-        public async Task<GenericResponse< List<Item>>> GetItemsListAsync(IEnumerable<OrderItemResource> saveOrderItems)
-        {
-            var items = new List<Item>();
-            try
-            {
-                foreach (var item in saveOrderItems)
-                {
-                    var result = await _productService.FindByIdAsync(item.ProductId);
-
-                    if (!result.Success)
-                        return new GenericResponse< List<Item>>(result.Message);
-                
-                    items.Add(new Item{ Product = result.Resource, Quantity = item.Quantity});
-                }
-                return new GenericResponse< List<Item>>(items);
-            }
-            catch (Exception ex)
-            {
-                return new GenericResponse< List<Item>>($"Could not get the items: {ex.Message}");
             }
             
         }

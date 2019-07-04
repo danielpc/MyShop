@@ -58,6 +58,7 @@ namespace Supermarket.API
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IShoppingCartService, ShoppingCartService>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
 
             services.Configure<TokenOptions>(Configuration.GetSection("TokenOptions"));
