@@ -31,7 +31,7 @@ namespace Supermarket.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
             
-            var result = await _orderService.SaveAsync(User.GetUserID(), saveOrderItems);
+            var result = await _orderService.SaveAsync(User.GetUserId(), saveOrderItems);
 
             if (!result.Success)
                 return BadRequest(result.Message);
